@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence - Perfumaria Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Essence</h1>
+                <span>Perfumaria Premium</span>
+            </div>
+            <nav class="nav">
+                <a href="#home">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Desperte Seus Sentidos</h2>
+            <p>Descubra nossa coleção exclusiva de perfumes premium que capturam a essência da elegância e sofisticação.</p>
+            <a href="#produtos" class="cta-button">Explorar Coleção</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Perfumes Premium">
+        </div>
+    </section>
+
+    <section id="produtos" class="products">
+        <div class="container">
+            <h2 class="section-title">Nossa Coleção</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product="Noir Mystique">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Noir Mystique">
+                        <div class="product-overlay">
+                            <button class="quick-view">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Noir Mystique</h3>
+                        <p class="product-description">Uma fragrância envolvente com notas de bergamota, jasmim e sândalo.</p>
+                        <div class="product-details">
+                            <span class="price">R$ 189,90</span>
+                            <span class="volume">100ml</span>
+                        </div>
+                        <button class="buy-button" onclick="comprarPerfume('Noir Mystique', 'R$ 189,90', '100ml', 'Bergamota, Jasmim, Sândalo')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="Rose Élégance">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Rose Élégance">
+                        <div class="product-overlay">
+                            <button class="quick-view">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Rose Élégance</h3>
+                        <p class="product-description">Delicada e romântica, com pétalas de rosa, peônia e almíscar branco.</p>
+                        <div class="product-details">
+                            <span class="price">R$ 159,90</span>
+                            <span class="volume">75ml</span>
+                        </div>
+                        <button class="buy-button" onclick="comprarPerfume('Rose Élégance', 'R$ 159,90', '75ml', 'Rosa, Peônia, Almíscar Branco')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="Ocean Breeze">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Ocean Breeze">
+                        <div class="product-overlay">
+                            <button class="quick-view">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ocean Breeze</h3>
+                        <p class="product-description">Fresca e revigorante, inspirada na brisa marinha com notas aquáticas.</p>
+                        <div class="product-details">
+                            <span class="price">R$ 139,90</span>
+                            <span class="volume">100ml</span>
+                        </div>
+                        <button class="buy-button" onclick="comprarPerfume('Ocean Breeze', 'R$ 139,90', '100ml', 'Notas Aquáticas, Limão, Cedro')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="Golden Amber">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Golden Amber">
+                        <div class="product-overlay">
+                            <button class="quick-view">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Golden Amber</h3>
+                        <p class="product-description">Quente e sensual, com âmbar dourado, baunilha e especiarias orientais.</p>
+                        <div class="product-details">
+                            <span class="price">R$ 199,90</span>
+                            <span class="volume">100ml</span>
+                        </div>
+                        <button class="buy-button" onclick="comprarPerfume('Golden Amber', 'R$ 199,90', '100ml', 'Âmbar, Baunilha, Especiarias Orientais')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="Citrus Fresh">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Citrus Fresh">
+                        <div class="product-overlay">
+                            <button class="quick-view">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Citrus Fresh</h3>
+                        <p class="product-description">Vibrante e energizante, com laranja doce, limão siciliano e hortelã.</p>
+                        <div class="product-details">
+                            <span class="price">R$ 119,90</span>
+                            <span class="volume">75ml</span>
+                        </div>
+                        <button class="buy-button" onclick="comprarPerfume('Citrus Fresh', 'R$ 119,90', '75ml', 'Laranja Doce, Limão Siciliano, Hortelã')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product="Velvet Night">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Velvet Night">
+                        <div class="product-overlay">
+                            <button class="quick-view">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Velvet Night</h3>
+                        <p class="product-description">Sofisticada e misteriosa, com violeta, íris e madeiras nobres.</p>
+                        <div class="product-details">
+                            <span class="price">R$ 179,90</span>
+                            <span class="volume">100ml</span>
+                        </div>
+                        <button class="buy-button" onclick="comprarPerfume('Velvet Night', 'R$ 179,90', '100ml', 'Violeta, Íris, Madeiras Nobres')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre a Essence</h2>
+                    <p>Na Essence, acreditamos que cada pessoa possui uma essência única que merece ser celebrada através de fragrâncias excepcionais. Nossa coleção cuidadosamente selecionada oferece perfumes premium que capturam momentos, despertam memórias e expressam personalidades.</p>
+                    <p>Cada fragrância em nossa coleção é escolhida por sua qualidade superior, longevidade e capacidade de contar uma história única através do olfato.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sobre Essence">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Essence</h3>
+                    <p>Perfumaria Premium</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>WhatsApp: (11) 99999-9999</p>
+                    <p>Email: contato@essence.com.br</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Horário de Atendimento</h4>
+                    <p>Segunda a Sexta: 9h às 18h</p>
+                    <p>Sábado: 9h às 14h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Essence Perfumaria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
