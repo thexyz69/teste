@@ -5,22 +5,23 @@
 }
 
 :root {
-    --primary-color: #2c1810;
-    --secondary-color: #d4af37;
-    --accent-color: #f8f6f0;
-    --text-dark: #2c1810;
-    --text-light: #6b5b73;
+    --primary-black: #0a0a0a;
+    --street-red: #ff0040;
+    --neon-green: #00ff41;
+    --urban-yellow: #ffff00;
+    --concrete-gray: #2a2a2a;
+    --light-gray: #666;
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #2c1810 0%, #4a3728 100%);
-    --shadow: 0 10px 30px rgba(44, 24, 16, 0.1);
-    --shadow-hover: 0 20px 40px rgba(44, 24, 16, 0.15);
+    --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-neon: 0 0 20px rgba(255, 0, 64, 0.5);
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    background: var(--primary-black);
+    color: var(--white);
+    line-height: 1.4;
+    overflow-x: hidden;
 }
 
 .container {
@@ -31,14 +32,14 @@ body {
 
 /* Header */
 .header {
-    background: var(--white);
-    box-shadow: var(--shadow);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
     z-index: 1000;
-    transition: all 0.3s ease;
+    border-bottom: 2px solid var(--street-red);
 }
 
 .header .container {
@@ -49,19 +50,20 @@ body {
 }
 
 .logo h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: -5px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    color: var(--street-red);
+    text-shadow: 2px 2px 0 var(--primary-black);
+    letter-spacing: 3px;
 }
 
 .logo span {
-    font-size: 0.8rem;
-    color: var(--secondary-color);
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    color: var(--neon-green);
+    letter-spacing: 2px;
+    display: block;
+    margin-top: -8px;
 }
 
 .nav {
@@ -71,14 +73,17 @@ body {
 
 .nav a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--white);
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
     position: relative;
 }
 
 .nav a:hover {
-    color: var(--secondary-color);
+    color: var(--street-red);
+    text-shadow: 0 0 10px var(--street-red);
 }
 
 .nav a::after {
@@ -88,7 +93,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--secondary-color);
+    background: var(--street-red);
     transition: width 0.3s ease;
 }
 
@@ -98,104 +103,150 @@ body {
 
 /* Hero Section */
 .hero {
-    margin-top: 80px;
-    padding: 4rem 0;
-    background: var(--accent-color);
+    height: 100vh;
     display: flex;
     align-items: center;
-    min-height: 70vh;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(45deg, var(--primary-black), var(--concrete-gray));
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
 }
 
 .hero-content {
-    flex: 1;
-    padding: 0 2rem;
-    max-width: 600px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
 }
 
-.hero-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+.graffiti-text h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 8rem;
+    color: var(--street-red);
+    text-shadow: 
+        3px 3px 0 var(--primary-black),
+        6px 6px 0 var(--concrete-gray),
+        0 0 30px var(--street-red);
+    letter-spacing: 5px;
+    margin-bottom: -20px;
+    transform: rotate(-2deg);
+}
+
+.graffiti-text h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    color: var(--neon-green);
+    text-shadow: 
+        2px 2px 0 var(--primary-black),
+        0 0 20px var(--neon-green);
+    letter-spacing: 8px;
+    transform: rotate(1deg);
+    margin-bottom: 2rem;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-    line-height: 1.8;
+    font-size: 1.5rem;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+    font-weight: 300;
 }
 
-.cta-button {
+.cta-btn {
     display: inline-block;
-    background: var(--gradient);
+    background: linear-gradient(45deg, var(--street-red), #ff4066);
     color: var(--white);
-    padding: 1rem 2.5rem;
+    padding: 1.2rem 3rem;
     text-decoration: none;
-    border-radius: 50px;
     font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    border: 2px solid var(--street-red);
     transition: all 0.3s ease;
-    box-shadow: var(--shadow);
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+.cta-btn:hover {
+    background: var(--primary-black);
+    box-shadow: var(--shadow-neon);
+    transform: translateY(-3px);
 }
 
-.hero-image {
-    flex: 1;
-    text-align: center;
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+.cta-btn:hover::before {
+    left: 100%;
 }
 
-/* Products Section */
-.products {
+/* Catalog Section */
+.catalog {
     padding: 5rem 0;
-    background: var(--white);
+    background: var(--primary-black);
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
+    margin-bottom: 4rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    letter-spacing: 3px;
+}
+
+.section-title .graffiti {
+    color: var(--street-red);
+    text-shadow: 2px 2px 0 var(--primary-black);
+}
+
+.section-title .outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--neon-green);
+    text-shadow: 0 0 20px var(--neon-green);
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
 }
 
 .product-card {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+    background: var(--concrete-gray);
+    border: 2px solid transparent;
     transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    border-color: var(--street-red);
+    box-shadow: var(--shadow-neon);
+    transform: translateY(-5px);
 }
 
 .product-image {
     position: relative;
-    overflow: hidden;
     height: 250px;
+    overflow: hidden;
 }
 
 .product-image img {
@@ -203,44 +254,37 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    filter: grayscale(20%);
 }
 
 .product-card:hover .product-image img {
     transform: scale(1.1);
+    filter: grayscale(0%);
 }
 
-.product-overlay {
+.product-tag {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(44, 24, 16, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.product-card:hover .product-overlay {
-    opacity: 1;
-}
-
-.quick-view {
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
+    top: 15px;
+    right: 15px;
+    background: var(--street-red);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    transform: rotate(15deg);
+    box-shadow: var(--shadow-dark);
 }
 
-.quick-view:hover {
-    background: var(--white);
-    transform: scale(1.05);
+.product-tag.hot {
+    background: var(--urban-yellow);
+    color: var(--primary-black);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: rotate(15deg) scale(1); }
+    50% { transform: rotate(15deg) scale(1.1); }
 }
 
 .product-info {
@@ -248,121 +292,211 @@ body {
 }
 
 .product-info h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 1.5rem;
+    color: var(--white);
     margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    letter-spacing: 1px;
 }
 
-.product-description {
-    color: var(--text-light);
+.product-desc {
+    color: var(--light-gray);
     margin-bottom: 1rem;
     font-size: 0.9rem;
-    line-height: 1.6;
 }
 
-.product-details {
+.price-section {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary-color);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: var(--neon-green);
+    font-weight: 600;
 }
 
-.volume {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    background: var(--accent-color);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
+.old-price {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    text-decoration: line-through;
 }
 
-.buy-button {
+.buy-btn {
     width: 100%;
-    background: var(--gradient);
+    background: linear-gradient(45deg, var(--street-red), #ff4066);
     color: var(--white);
     border: none;
     padding: 1rem;
-    border-radius: 50px;
+    font-family: 'Oswald', sans-serif;
     font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
-.buy-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
+.buy-btn:hover {
+    background: var(--primary-black);
+    border: 2px solid var(--street-red);
+    box-shadow: var(--shadow-neon);
 }
 
-/* About Section */
-.about {
+.buy-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.buy-btn:hover::before {
+    left: 100%;
+}
+
+/* Contact Section */
+.contact {
     padding: 5rem 0;
-    background: var(--accent-color);
+    background: var(--concrete-gray);
 }
 
-.about-content {
+.contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
 }
 
-.about-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
+.contact-info h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: var(--street-red);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
 }
 
-.about-text p {
-    color: var(--text-light);
-    margin-bottom: 1rem;
-    line-height: 1.8;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--primary-black);
+    border-left: 4px solid var(--neon-green);
 }
 
-.about-image img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+.contact-item .icon {
+    font-size: 2rem;
+}
+
+.contact-item h4 {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.contact-item p {
+    color: var(--light-gray);
+}
+
+.graffiti-wall {
+    position: relative;
+    height: 300px;
+    background: linear-gradient(45deg, var(--primary-black), #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wall-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 6rem;
+    color: var(--street-red);
+    text-shadow: 
+        3px 3px 0 var(--primary-black),
+        0 0 30px var(--street-red);
+    letter-spacing: 5px;
+    transform: rotate(-10deg);
+    position: absolute;
+}
+
+.wall-text-2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    color: var(--neon-green);
+    text-shadow: 
+        2px 2px 0 var(--primary-black),
+        0 0 20px var(--neon-green);
+    letter-spacing: 8px;
+    transform: rotate(5deg);
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
 }
 
 /* Footer */
 .footer {
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--primary-black);
     padding: 3rem 0 1rem;
+    border-top: 2px solid var(--street-red);
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
-.footer-section h3,
-.footer-section h4 {
-    font-family: 'Playfair Display', serif;
+.footer-brand h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: var(--street-red);
     margin-bottom: 1rem;
-    color: var(--secondary-color);
+    letter-spacing: 2px;
 }
 
-.footer-section p {
-    color: rgba(255, 255, 255, 0.8);
+.footer-brand p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.footer-links h4 {
+    color: var(--neon-green);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.footer-links a {
+    display: block;
+    color: var(--light-gray);
+    text-decoration: none;
     margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--street-red);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid var(--concrete-gray);
+    color: var(--light-gray);
+    font-size: 0.9rem;
 }
 
 /* Responsive Design */
@@ -371,18 +505,15 @@ body {
         display: none;
     }
     
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 0;
+    .graffiti-text h2 {
+        font-size: 4rem;
     }
     
-    .hero-content {
-        padding: 0 1rem;
-        margin-bottom: 2rem;
+    .graffiti-text h3 {
+        font-size: 2rem;
     }
     
-    .hero-content h2 {
+    .section-title {
         font-size: 2.5rem;
     }
     
@@ -391,36 +522,23 @@ body {
         gap: 1.5rem;
     }
     
-    .about-content {
+    .contact-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
     }
     
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
+    
+    .wall-text {
+        font-size: 3rem;
     }
     
-    .hero-content h2 {
+    .wall-text-2 {
         font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .product-card {
-        margin: 0 10px;
+        bottom: 30px;
+        right: 30px;
     }
 }
 
@@ -429,11 +547,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Loading animation */
-@keyframes fadeInUp {
+/* Loading animations */
+@keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
@@ -442,7 +560,7 @@ html {
 }
 
 .product-card {
-    animation: fadeInUp 0.6s ease forwards;
+    animation: slideInUp 0.6s ease forwards;
 }
 
 .product-card:nth-child(1) { animation-delay: 0.1s; }

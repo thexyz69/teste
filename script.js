@@ -1,17 +1,18 @@
-// Função para comprar perfume via WhatsApp
-function comprarPerfume(nome, preco, volume, notas) {
+// Função para comprar produto via WhatsApp
+function comprarProduto(nome, preco, descricao) {
     // Número do WhatsApp (substitua pelo seu número)
     const numeroWhatsApp = "5511999999999"; // Formato: código do país + DDD + número
     
-    // Mensagem personalizada com os dados do perfume
-    const mensagem = `Olá! Tenho interesse no perfume:
+    // Mensagem personalizada com os dados do produto
+    const mensagem = `🔥 *THREE IMPORT* 🔥
 
-🌸 *${nome}*
+Salve! Tenho interesse neste produto:
+
+📦 *${nome}*
 💰 Preço: ${preco}
-📦 Volume: ${volume}
-🎭 Notas: ${notas}
+📝 Descrição: ${descricao}
 
-Gostaria de mais informações sobre este produto!`;
+Quero saber mais sobre este produto! 🛒`;
     
     // Codifica a mensagem para URL
     const mensagemCodificada = encodeURIComponent(mensagem);
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // CTA button smooth scroll
-    const ctaButton = document.querySelector('.cta-button');
+    const ctaButton = document.querySelector('.cta-btn');
     if (ctaButton) {
         ctaButton.addEventListener('click', function(e) {
             e.preventDefault();
@@ -66,14 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Efeito de parallax no hero
+// Efeito parallax no hero
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
-    const heroImage = document.querySelector('.hero-image img');
+    const heroContent = document.querySelector('.hero-content');
     
-    if (heroImage) {
-        const speed = scrolled * 0.5;
-        heroImage.style.transform = `translateY(${speed}px)`;
+    if (heroContent) {
+        const speed = scrolled * 0.3;
+        heroContent.style.transform = `translateY(${speed}px)`;
     }
 });
 
@@ -106,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Efeito hover nos botões de compra
 document.addEventListener('DOMContentLoaded', function() {
-    const buyButtons = document.querySelectorAll('.buy-button');
+    const buyButtons = document.querySelectorAll('.buy-btn');
     
     buyButtons.forEach(button => {
         button.addEventListener('mouseenter', function() {
@@ -124,10 +125,46 @@ window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
+        header.style.background = 'rgba(10, 10, 10, 0.98)';
+        header.style.backdropFilter = 'blur(15px)';
     } else {
-        header.style.background = 'var(--white)';
-        header.style.backdropFilter = 'none';
+        header.style.background = 'rgba(10, 10, 10, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
     }
 });
+
+// Efeito de glitch no texto principal
+function glitchEffect() {
+    const graffiti = document.querySelector('.graffiti-text h2');
+    if (graffiti) {
+        graffiti.style.textShadow = `
+            ${Math.random() * 5}px ${Math.random() * 5}px 0 #ff0040,
+            ${Math.random() * 5}px ${Math.random() * 5}px 0 #00ff41,
+            ${Math.random() * 5}px ${Math.random() * 5}px 0 #0a0a0a
+        `;
+        
+        setTimeout(() => {
+            graffiti.style.textShadow = `
+                3px 3px 0 #0a0a0a,
+                6px 6px 0 #2a2a2a,
+                0 0 30px #ff0040
+            `;
+        }, 100);
+    }
+}
+
+// Aplica o efeito glitch ocasionalmente
+setInterval(glitchEffect, 5000);
+
+// Efeito de neon pulsante
+function neonPulse() {
+    const neonElements = document.querySelectorAll('.wall-text-2, .section-title .outline');
+    neonElements.forEach(element => {
+        element.style.textShadow = '0 0 30px currentColor';
+        setTimeout(() => {
+            element.style.textShadow = '0 0 20px currentColor';
+        }, 500);
+    });
+}
+
+setInterval(neonPulse, 3000);
