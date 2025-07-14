@@ -1,18 +1,19 @@
-// Função para comprar produto via WhatsApp
-function comprarProduto(nome, preco, descricao) {
+// Função para comprar perfume via WhatsApp
+function comprarPerfume(nome, preco, volume, descricao) {
     // Número do WhatsApp (substitua pelo seu número)
     const numeroWhatsApp = "5511999999999"; // Formato: código do país + DDD + número
     
-    // Mensagem personalizada com os dados do produto
-    const mensagem = `🔥 *THREE IMPORT* 🔥
+    // Mensagem personalizada com os dados do perfume
+    const mensagem = `🔥 *THREE IMPORT PERFUMES* 🔥
 
-Salve! Tenho interesse neste produto:
+Salve mano! Quero esse perfume aqui:
 
-📦 *${nome}*
+🍾 *${nome}*
 💰 Preço: ${preco}
-📝 Descrição: ${descricao}
+📏 Volume: ${volume}
+📝 ${descricao}
 
-Quero saber mais sobre este produto! 🛒`;
+Bora fechar negócio! 💯`;
     
     // Codifica a mensagem para URL
     const mensagemCodificada = encodeURIComponent(mensagem);
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ctaButton.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const targetSection = document.querySelector('#produtos');
+            const targetSection = document.querySelector('#perfumes');
             if (targetSection) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight;
@@ -71,11 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const heroContent = document.querySelector('.hero-content');
+    const floatingBottles = document.querySelectorAll('.bottle');
     
     if (heroContent) {
         const speed = scrolled * 0.3;
         heroContent.style.transform = `translateY(${speed}px)`;
     }
+    
+    // Animação das garrafas flutuantes
+    floatingBottles.forEach((bottle, index) => {
+        const speed = scrolled * (0.1 + index * 0.05);
+        bottle.style.transform = `translateY(${speed}px) rotate(${speed * 0.5}deg)`;
+    });
 });
 
 // Animação de entrada dos cards quando entram na viewport
@@ -93,11 +101,11 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Observa todos os cards de produto
+// Observa todos os cards de perfume
 document.addEventListener('DOMContentLoaded', function() {
-    const productCards = document.querySelectorAll('.product-card');
+    const perfumeCards = document.querySelectorAll('.perfume-card');
     
-    productCards.forEach(card => {
+    perfumeCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -139,7 +147,7 @@ function glitchEffect() {
     if (graffiti) {
         graffiti.style.textShadow = `
             ${Math.random() * 5}px ${Math.random() * 5}px 0 #ff0040,
-            ${Math.random() * 5}px ${Math.random() * 5}px 0 #00ff41,
+            ${Math.random() * 5}px ${Math.random() * 5}px 0 #ff00ff,
             ${Math.random() * 5}px ${Math.random() * 5}px 0 #0a0a0a
         `;
         
@@ -158,7 +166,7 @@ setInterval(glitchEffect, 5000);
 
 // Efeito de neon pulsante
 function neonPulse() {
-    const neonElements = document.querySelectorAll('.wall-text-2, .section-title .outline');
+    const neonElements = document.querySelectorAll('.wall-text-2, .wall-text-3, .section-title .outline');
     neonElements.forEach(element => {
         element.style.textShadow = '0 0 30px currentColor';
         setTimeout(() => {
@@ -168,3 +176,59 @@ function neonPulse() {
 }
 
 setInterval(neonPulse, 3000);
+
+// Efeito de partículas no background
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.style.position = 'fixed';
+    particle.style.width = '2px';
+    particle.style.height = '2px';
+    particle.style.background = '#ff0040';
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.top = '100vh';
+    particle.style.pointerEvents = 'none';
+    particle.style.zIndex = '1';
+    particle.style.opacity = '0.5';
+    
+    document.body.appendChild(particle);
+    
+    const animation = particle.animate([
+        { transform: 'translateY(0px)', opacity: 0.5 },
+        { transform: 'translateY(-100vh)', opacity: 0 }
+    ], {
+        duration: Math.random() * 3000 + 2000,
+        easing: 'linear'
+    });
+    
+    animation.onfinish = () => {
+        particle.remove();
+    };
+}
+
+// Cria partículas ocasionalmente
+setInterval(createParticle, 2000);
+
+// Efeito de hover nos cards de perfume
+document.addEventListener('DOMContentLoaded', function() {
+    const perfumeCards = document.querySelectorAll('.perfume-card');
+    
+    perfumeCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 0 30px rgba(255, 0, 64, 0.6)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '';
+        });
+    });
+});
+
+// Animação de loading da página
+window.addEventListener('load', function() {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
+});

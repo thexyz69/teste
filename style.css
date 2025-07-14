@@ -9,11 +9,14 @@
     --street-red: #ff0040;
     --neon-green: #00ff41;
     --urban-yellow: #ffff00;
+    --purple-neon: #ff00ff;
     --concrete-gray: #2a2a2a;
     --light-gray: #666;
     --white: #ffffff;
+    --gold: #ffd700;
     --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
     --shadow-neon: 0 0 20px rgba(255, 0, 64, 0.5);
+    --shadow-purple: 0 0 20px rgba(255, 0, 255, 0.5);
 }
 
 body {
@@ -64,6 +67,14 @@ body {
     letter-spacing: 2px;
     display: block;
     margin-top: -8px;
+}
+
+.logo-subtitle {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 0.8rem;
+    color: var(--purple-neon);
+    letter-spacing: 1px;
+    margin-top: -5px;
 }
 
 .nav {
@@ -139,26 +150,56 @@ body {
     letter-spacing: 5px;
     margin-bottom: -20px;
     transform: rotate(-2deg);
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .graffiti-text h3 {
     font-family: 'Bebas Neue', cursive;
     font-size: 4rem;
-    color: var(--neon-green);
+    color: var(--purple-neon);
     text-shadow: 
         2px 2px 0 var(--primary-black),
-        0 0 20px var(--neon-green);
+        0 0 20px var(--purple-neon);
     letter-spacing: 8px;
     transform: rotate(1deg);
     margin-bottom: 2rem;
 }
 
+@keyframes glow {
+    from { text-shadow: 3px 3px 0 var(--primary-black), 6px 6px 0 var(--concrete-gray), 0 0 30px var(--street-red); }
+    to { text-shadow: 3px 3px 0 var(--primary-black), 6px 6px 0 var(--concrete-gray), 0 0 50px var(--street-red); }
+}
+
 .hero-content p {
     font-size: 1.5rem;
     color: var(--light-gray);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     letter-spacing: 2px;
     font-weight: 300;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: var(--concrete-gray);
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .cta-btn {
@@ -183,19 +224,41 @@ body {
     transform: translateY(-3px);
 }
 
-.cta-btn::before {
-    content: '';
+.floating-bottles {
     position: absolute;
-    top: 0;
-    left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    pointer-events: none;
 }
 
-.cta-btn:hover::before {
-    left: 100%;
+.bottle {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.bottle-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bottle-2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.bottle-3 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
 }
 
 /* Catalog Section */
@@ -219,37 +282,38 @@ body {
 
 .section-title .outline {
     color: transparent;
-    -webkit-text-stroke: 2px var(--neon-green);
-    text-shadow: 0 0 20px var(--neon-green);
+    -webkit-text-stroke: 2px var(--purple-neon);
+    text-shadow: 0 0 20px var(--purple-neon);
 }
 
-.products-grid {
+.perfumes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
-.product-card {
+.perfume-card {
     background: var(--concrete-gray);
     border: 2px solid transparent;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
 }
 
-.product-card:hover {
+.perfume-card:hover {
     border-color: var(--street-red);
     box-shadow: var(--shadow-neon);
     transform: translateY(-5px);
 }
 
-.product-image {
+.perfume-image {
     position: relative;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
 }
 
-.product-image img {
+.perfume-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -257,12 +321,12 @@ body {
     filter: grayscale(20%);
 }
 
-.product-card:hover .product-image img {
+.perfume-card:hover .perfume-image img {
     transform: scale(1.1);
     filter: grayscale(0%);
 }
 
-.product-tag {
+.perfume-tag {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -274,35 +338,97 @@ body {
     letter-spacing: 1px;
     transform: rotate(15deg);
     box-shadow: var(--shadow-dark);
+    border-radius: 5px;
 }
 
-.product-tag.hot {
+.perfume-tag.novo {
+    background: var(--neon-green);
+    color: var(--primary-black);
+}
+
+.perfume-tag.premium {
+    background: var(--gold);
+    color: var(--primary-black);
+}
+
+.perfume-tag.fire {
     background: var(--urban-yellow);
     color: var(--primary-black);
     animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: rotate(15deg) scale(1); }
-    50% { transform: rotate(15deg) scale(1.1); }
+.perfume-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
-.product-info {
+.perfume-card:hover .perfume-overlay {
+    transform: translateY(0);
+}
+
+.scent-notes {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.scent-notes span {
+    background: var(--primary-black);
+    color: var(--neon-green);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    border-radius: 15px;
+    border: 1px solid var(--neon-green);
+}
+
+.perfume-info {
     padding: 1.5rem;
 }
 
-.product-info h3 {
+.perfume-info h3 {
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--white);
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
 }
 
-.product-desc {
+.perfume-brand {
+    color: var(--purple-neon);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.perfume-desc {
     color: var(--light-gray);
     margin-bottom: 1rem;
     font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.perfume-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.volume, .concentration {
+    background: var(--primary-black);
+    color: var(--neon-green);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--neon-green);
+    border-radius: 5px;
+    font-weight: 600;
 }
 
 .price-section {
@@ -314,7 +440,7 @@ body {
 
 .price {
     font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--neon-green);
     font-weight: 600;
 }
@@ -340,27 +466,58 @@ body {
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 .buy-btn:hover {
     background: var(--primary-black);
     border: 2px solid var(--street-red);
     box-shadow: var(--shadow-neon);
+    transform: translateY(-2px);
 }
 
-.buy-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+/* Benefits Section */
+.benefits {
+    padding: 4rem 0;
+    background: var(--concrete-gray);
 }
 
-.buy-btn:hover::before {
-    left: 100%;
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-black);
+    border: 2px solid var(--neon-green);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-item h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.benefit-item p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
 }
 
 /* Contact Section */
@@ -392,6 +549,7 @@ body {
     padding: 1rem;
     background: var(--primary-black);
     border-left: 4px solid var(--neon-green);
+    border-radius: 5px;
 }
 
 .contact-item .icon {
@@ -409,19 +567,53 @@ body {
     color: var(--light-gray);
 }
 
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links h4 {
+    color: var(--purple-neon);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-icons span {
+    background: var(--primary-black);
+    color: var(--purple-neon);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--purple-neon);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-icons span:hover {
+    background: var(--purple-neon);
+    color: var(--primary-black);
+}
+
 .graffiti-wall {
     position: relative;
-    height: 300px;
+    height: 350px;
     background: linear-gradient(45deg, var(--primary-black), #1a1a1a);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .wall-text {
     font-family: 'Bebas Neue', cursive;
-    font-size: 6rem;
+    font-size: 5rem;
     color: var(--street-red);
     text-shadow: 
         3px 3px 0 var(--primary-black),
@@ -429,20 +621,35 @@ body {
     letter-spacing: 5px;
     transform: rotate(-10deg);
     position: absolute;
+    top: 20%;
 }
 
 .wall-text-2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    color: var(--purple-neon);
+    text-shadow: 
+        2px 2px 0 var(--primary-black),
+        0 0 20px var(--purple-neon);
+    letter-spacing: 8px;
+    transform: rotate(5deg);
+    position: absolute;
+    bottom: 40%;
+    right: 20%;
+}
+
+.wall-text-3 {
     font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
     color: var(--neon-green);
     text-shadow: 
         2px 2px 0 var(--primary-black),
         0 0 20px var(--neon-green);
-    letter-spacing: 8px;
-    transform: rotate(5deg);
+    letter-spacing: 6px;
+    transform: rotate(-5deg);
     position: absolute;
-    bottom: 50px;
-    right: 50px;
+    bottom: 10%;
+    left: 15%;
 }
 
 /* Footer */
@@ -517,9 +724,13 @@ body {
         font-size: 2.5rem;
     }
     
-    .products-grid {
+    .perfumes-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
     }
     
     .contact-content {
@@ -531,14 +742,21 @@ body {
         text-align: center;
     }
     
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .wall-text {
         font-size: 3rem;
     }
     
     .wall-text-2 {
+        font-size: 1.8rem;
+    }
+    
+    .wall-text-3 {
         font-size: 2rem;
-        bottom: 30px;
-        right: 30px;
     }
 }
 
@@ -559,13 +777,13 @@ html {
     }
 }
 
-.product-card {
+.perfume-card {
     animation: slideInUp 0.6s ease forwards;
 }
 
-.product-card:nth-child(1) { animation-delay: 0.1s; }
-.product-card:nth-child(2) { animation-delay: 0.2s; }
-.product-card:nth-child(3) { animation-delay: 0.3s; }
-.product-card:nth-child(4) { animation-delay: 0.4s; }
-.product-card:nth-child(5) { animation-delay: 0.5s; }
-.product-card:nth-child(6) { animation-delay: 0.6s; }
+.perfume-card:nth-child(1) { animation-delay: 0.1s; }
+.perfume-card:nth-child(2) { animation-delay: 0.2s; }
+.perfume-card:nth-child(3) { animation-delay: 0.3s; }
+.perfume-card:nth-child(4) { animation-delay: 0.4s; }
+.perfume-card:nth-child(5) { animation-delay: 0.5s; }
+.perfume-card:nth-child(6) { animation-delay: 0.6s; }
