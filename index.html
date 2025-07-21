@@ -3,280 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tataifelps - Maison de Parfums Exclusifs</title>
-    <meta name="description" content="Tataifelps - Fragrâncias exclusivas de alto luxo. Perfumes artesanais únicos para conhecedores exigentes.">
-    <meta name="keywords" content="perfumes luxo, fragrâncias exclusivas, perfumes artesanais, alto luxo">
+    <title>JFROZZ00 - Perfumes Premium</title>
+    <meta name="description" content="JFROZZ00 - Perfumes premium de alta qualidade">
     
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/animations.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loadingScreen" class="loading-screen">
-        <div class="loading-content">
-            <div class="luxury-logo">
-                <span class="logo-text">Tataifelps</span>
-                <span class="logo-subtitle">Maison de Parfums</span>
-            </div>
-            <div class="loading-spinner"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <h1 class="brand-name">Tataifelps</h1>
-                <span class="brand-subtitle">Maison de Parfums Exclusifs</span>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>JFROZZ00</h1>
+                <span>Perfumes Premium</span>
             </div>
             
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-section="home">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#collection" class="nav-link" data-section="collection">Collection</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#heritage" class="nav-link" data-section="heritage">Héritage</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#atelier" class="nav-link" data-section="atelier">Atelier</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-                </li>
-            </ul>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Início</a>
+                <a href="#catalog" class="nav-link">Catálogo</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </nav>
             
-            <div class="nav-actions">
-                <button class="search-btn" id="searchBtn" aria-label="Pesquisar">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="cart-btn" id="cartBtn" aria-label="Carrinho">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </button>
-                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
+    <!-- Home Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">L'Art de la</span>
-                    <span class="title-line highlight">Parfumerie</span>
-                    <span class="title-line">Exclusive</span>
-                </h1>
-                <p class="hero-description">
-                    Découvrez notre collection de fragrances artisanales, 
-                    créées avec les ingrédients les plus rares et précieux du monde.
-                </p>
-                <div class="hero-actions">
-                    <button class="btn btn-primary" id="exploreBtn">
-                        <span>Explorer la Collection</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <button class="btn btn-secondary" id="heritageBtn">
-                        <span>Notre Héritage</span>
-                    </button>
-                </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Perfumes Premium</h2>
+                <p>Descubra nossa coleção exclusiva de fragrâncias de alta qualidade</p>
+                <a href="#catalog" class="btn-primary">Ver Catálogo</a>
             </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span class="scroll-text">Scroll</span>
         </div>
     </section>
 
-    <!-- Collection Section -->
-    <section id="collection" class="collection">
+    <!-- Catalog Section -->
+    <section id="catalog" class="catalog">
         <div class="container">
-            <header class="section-header">
-                <span class="section-subtitle">Collection Exclusive</span>
-                <h2 class="section-title">Nos Créations d'Exception</h2>
-                <p class="section-description">
-                    Chaque fragrance raconte une histoire unique, composée avec passion 
-                    et savoir-faire traditionnel français.
-                </p>
-            </header>
-
-            <!-- Collection Filters -->
-            <div class="collection-filters">
-                <button class="filter-btn active" data-filter="all">
-                    <span>Toutes</span>
-                </button>
-                <button class="filter-btn" data-filter="homme">
-                    <span>Pour Homme</span>
-                </button>
-                <button class="filter-btn" data-filter="femme">
-                    <span>Pour Femme</span>
-                </button>
-                <button class="filter-btn" data-filter="unisex">
-                    <span>Unisexe</span>
-                </button>
-                <button class="filter-btn" data-filter="limited">
-                    <span>Édition Limitée</span>
-                </button>
+            <h2 class="section-title">Nosso Catálogo</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="masculino">Masculino</button>
+                <button class="filter-btn" data-filter="feminino">Feminino</button>
+                <button class="filter-btn" data-filter="unisex">Unisex</button>
             </div>
-
+            
             <!-- Products Grid -->
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be dynamically loaded -->
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="masculino">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perfume Masculino 1">
+                    </div>
+                    <div class="product-info">
+                        <h3>Elegance Black</h3>
+                        <p class="category">Masculino</p>
+                        <p class="price">R$ 89,90</p>
+                        <button class="btn-buy" onclick="buyProduct('Elegance Black', 'R$ 89,90', 'Masculino')">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="feminino">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perfume Feminino 1">
+                    </div>
+                    <div class="product-info">
+                        <h3>Rose Garden</h3>
+                        <p class="category">Feminino</p>
+                        <p class="price">R$ 95,90</p>
+                        <button class="btn-buy" onclick="buyProduct('Rose Garden', 'R$ 95,90', 'Feminino')">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="masculino">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perfume Masculino 2">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ocean Blue</h3>
+                        <p class="category">Masculino</p>
+                        <p class="price">R$ 79,90</p>
+                        <button class="btn-buy" onclick="buyProduct('Ocean Blue', 'R$ 79,90', 'Masculino')">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="feminino">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perfume Feminino 2">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sweet Dreams</h3>
+                        <p class="category">Feminino</p>
+                        <p class="price">R$ 85,90</p>
+                        <button class="btn-buy" onclick="buyProduct('Sweet Dreams', 'R$ 85,90', 'Feminino')">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-category="unisex">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perfume Unisex 1">
+                    </div>
+                    <div class="product-info">
+                        <h3>Urban Style</h3>
+                        <p class="category">Unisex</p>
+                        <p class="price">R$ 92,90</p>
+                        <button class="btn-buy" onclick="buyProduct('Urban Style', 'R$ 92,90', 'Unisex')">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-category="masculino">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Perfume Masculino 3">
+                    </div>
+                    <div class="product-info">
+                        <h3>Power Force</h3>
+                        <p class="category">Masculino</p>
+                        <p class="price">R$ 99,90</p>
+                        <button class="btn-buy" onclick="buyProduct('Power Force', 'R$ 99,90', 'Masculino')">
+                            <i class="fab fa-whatsapp"></i> Comprar
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Heritage Section -->
-    <section id="heritage" class="heritage">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <div class="heritage-content">
-                <div class="heritage-text">
-                    <span class="section-subtitle">Notre Histoire</span>
-                    <h2 class="section-title">Un Héritage de Parfumerie</h2>
-                    <div class="heritage-description">
-                        <p>
-                            Depuis plus de trois décennies, Tataifelps perpétue l'art ancestral 
-                            de la parfumerie française. Notre maison cultive l'excellence à travers 
-                            des créations uniques qui transcendent le temps.
-                        </p>
-                        <p>
-                            Chaque fragrance est le fruit d'un savoir-faire artisanal transmis de 
-                            génération en génération, alliant tradition et innovation pour créer 
-                            des œuvres olfactives d'exception.
-                        </p>
-                    </div>
-                    
-                    <div class="heritage-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>Excellence Artisanale</h4>
-                                <p>Création manuelle de chaque fragrance avec les plus nobles matières premières</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>Ingrédients Rares</h4>
-                                <p>Sélection exclusive d'essences précieuses provenant des quatre coins du monde</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>Éditions Limitées</h4>
-                                <p>Collections exclusives en quantités limitées pour les connaisseurs</p>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="section-title">Sobre a JFROZZ00</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>A JFROZZ00 é especializada em perfumes premium de alta qualidade. Oferecemos uma seleção cuidadosa de fragrâncias para todos os gostos e ocasiões.</p>
+                    <p>Nossa missão é proporcionar experiências olfativas únicas com produtos de excelência e atendimento personalizado.</p>
                 </div>
-                
-                <div class="heritage-visual">
-                    <div class="heritage-image">
-                        <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                             alt="Atelier de parfumerie Tataifelps" 
-                             loading="lazy">
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-star"></i>
+                        <h4>Qualidade Premium</h4>
+                        <p>Produtos selecionados com os mais altos padrões de qualidade</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Atelier Section -->
-    <section id="atelier" class="atelier">
-        <div class="container">
-            <div class="atelier-content">
-                <div class="atelier-visual">
-                    <div class="atelier-gallery">
-                        <div class="gallery-main">
-                            <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                                 alt="Maître parfumeur au travail" 
-                                 loading="lazy">
-                        </div>
-                        <div class="gallery-thumbnails">
-                            <img src="https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=300" 
-                                 alt="Ingrédients précieux" 
-                                 loading="lazy">
-                            <img src="https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=300" 
-                                 alt="Processus de création" 
-                                 loading="lazy">
-                        </div>
+                    <div class="feature">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h4>Entrega Rápida</h4>
+                        <p>Entregamos seus produtos com agilidade e segurança</p>
                     </div>
-                </div>
-                
-                <div class="atelier-text">
-                    <span class="section-subtitle">L'Atelier</span>
-                    <h2 class="section-title">L'Art de la Création</h2>
-                    <div class="atelier-description">
-                        <p>
-                            Dans notre atelier parisien, nos maîtres parfumeurs orchestrent 
-                            une symphonie olfactive unique. Chaque création naît d'une inspiration 
-                            profonde et d'une quête perpétuelle de perfection.
-                        </p>
-                    </div>
-                    
-                    <div class="atelier-process">
-                        <div class="process-step">
-                            <div class="step-number">01</div>
-                            <div class="step-content">
-                                <h4>Inspiration</h4>
-                                <p>Recherche d'émotions et de souvenirs à traduire en parfum</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step">
-                            <div class="step-number">02</div>
-                            <div class="step-content">
-                                <h4>Composition</h4>
-                                <p>Sélection minutieuse et assemblage des essences rares</p>
-                            </div>
-                        </div>
-                        
-                        <div class="process-step">
-                            <div class="step-number">03</div>
-                            <div class="step-content">
-                                <h4>Maturation</h4>
-                                <p>Vieillissement en fûts de chêne pour révéler toute la complexité</p>
-                            </div>
-                        </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <h4>Atendimento Personalizado</h4>
+                        <p>Suporte dedicado para ajudar na sua escolha</p>
                     </div>
                 </div>
             </div>
@@ -286,109 +191,38 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <span class="section-subtitle">Contact</span>
-                    <h2 class="section-title">Rendez-vous Privé</h2>
-                    <p class="contact-description">
-                        Découvrez nos créations lors d'une consultation personnalisée. 
-                        Nos experts vous guideront dans le choix de votre fragrance signature.
-                    </p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>WhatsApp Exclusif</h4>
-                                <p>+55 (11) 99999-9999</p>
-                                <span>Consultation immédiate</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Correspondance Privée</h4>
-                                <p>atelier@tataifelps.com</p>
-                                <span>Réponse sous 24h</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Atelier Parisien</h4>
-                                <p>São Paulo - SP</p>
-                                <span>Sur rendez-vous uniquement</span>
-                            </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+55 (11) 99999-9999</p>
                         </div>
                     </div>
-                    
-                    <div class="social-links">
-                        <h4>Suivez-nous</h4>
-                        <div class="social-icons">
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="TikTok">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@jfrozz00.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>São Paulo - SP</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">Prénom</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Nom</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Adresse Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="interest">Intérêt</label>
-                            <select id="interest" name="interest" required>
-                                <option value="">Sélectionnez votre intérêt</option>
-                                <option value="consultation">Consultation privée</option>
-                                <option value="collection">Découvrir la collection</option>
-                                <option value="custom">Création sur mesure</option>
-                                <option value="gift">Coffret cadeau</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Partagez-nous vos préférences olfactives..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Envoyer la Demande</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Seu nome" required>
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+                        <button type="submit" class="btn-primary">Enviar Mensagem</button>
                     </form>
                 </div>
             </div>
@@ -400,133 +234,32 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3 class="brand-name">Tataifelps</h3>
-                    <p class="brand-subtitle">Maison de Parfums Exclusifs</p>
-                    <p class="brand-description">
-                        L'excellence française au service de l'art olfactif depuis 1990.
-                    </p>
+                    <h3>JFROZZ00</h3>
+                    <p>Perfumes Premium de Alta Qualidade</p>
                 </div>
-                
                 <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#home">Accueil</a></li>
-                        <li><a href="#collection">Collection</a></li>
-                        <li><a href="#heritage">Héritage</a></li>
-                        <li><a href="#atelier">Atelier</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                    <h4>Links Rápidos</h4>
+                    <a href="#home">Início</a>
+                    <a href="#catalog">Catálogo</a>
+                    <a href="#about">Sobre</a>
+                    <a href="#contact">Contato</a>
                 </div>
-                
-                <div class="footer-services">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Consultation Privée</a></li>
-                        <li><a href="#">Création Sur Mesure</a></li>
-                        <li><a href="#">Coffrets Cadeaux</a></li>
-                        <li><a href="#">Livraison Premium</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>Contact Exclusif</h4>
-                    <p><i class="fab fa-whatsapp"></i> +55 (11) 99999-9999</p>
-                    <p><i class="fas fa-envelope"></i> atelier@tataifelps.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> São Paulo - SP</p>
+                <div class="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2024 Tataifelps. Tous droits réservés.</p>
-                </div>
-                <div class="footer-legal">
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">Politique de Confidentialité</a>
-                    <a href="#">Conditions Générales</a>
-                </div>
+                <p>&copy; 2024 JFROZZ00. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Product Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Fermer">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="modal-body">
-                <div class="modal-gallery">
-                    <div class="modal-image-main">
-                        <img id="modalMainImage" src="" alt="">
-                    </div>
-                    <div class="modal-thumbnails">
-                        <!-- Thumbnails will be added dynamically -->
-                    </div>
-                </div>
-                
-                <div class="modal-info">
-                    <div class="modal-header">
-                        <h3 id="modalTitle" class="modal-title"></h3>
-                        <span id="modalCategory" class="modal-category"></span>
-                    </div>
-                    
-                    <div class="modal-price">
-                        <span id="modalPrice" class="price-current"></span>
-                        <span id="modalOldPrice" class="price-old"></span>
-                    </div>
-                    
-                    <div class="modal-description">
-                        <p id="modalDescription"></p>
-                    </div>
-                    
-                    <div class="modal-notes">
-                        <h4>Notes Olfactives</h4>
-                        <div id="modalNotes" class="notes-list"></div>
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <button id="modalBuyBtn" class="btn btn-primary btn-full">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span>Commander Maintenant</span>
-                        </button>
-                        <button class="btn btn-secondary btn-full">
-                            <i class="fas fa-heart"></i>
-                            <span>Ajouter aux Favoris</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Search Modal -->
-    <div id="searchModal" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="search-modal-content">
-            <div class="search-header">
-                <div class="search-input-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Rechercher une fragrance...">
-                </div>
-                <button class="search-close" id="searchClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="search-results" id="searchResults">
-                <!-- Search results will be populated here -->
-            </div>
-        </div>
-    </div>
-
     <!-- Scripts -->
-    <script src="js/config.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
